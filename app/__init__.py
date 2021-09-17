@@ -18,7 +18,8 @@ simple = SimpleMDE()
 
 
 login_manager = LoginManager()
-login_manager.session_protection = 'strong' #provides different security levels.
+login_manager.session_protection = 'strong' 
+#provides different security levels.
 login_manager.login_view = 'auth.login'
 
 
