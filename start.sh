@@ -1,5 +1,5 @@
-    export MOVIE_API_KEY='4fd793215300450014ee89ee14945659'
-export  SECRET_KEY='os.urandom(32)'
-export MAIL_USERNAME='otienonick70@gmail.com'
-export MAIL_PASSWORD='0718849600'
+
+export  SECRET_KEY='sectret2'
+export MAIL_USERNAME='brobernard.254@gmail.com'
+export MAIL_PASSWORD='BRO@2030'
 python3.8 manage.py server
