@@ -6,7 +6,7 @@ from app.models import User,Role
 
 # creating app instance
 app = create_app('development')
-app = create_app('test')
+# app = create_app('test')
 
 
 migrate = Migrate(app,db)
