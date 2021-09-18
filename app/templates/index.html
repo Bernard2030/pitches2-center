@@ -1,4 +1,6 @@
+
 {% extends 'base.html'%}
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -10,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+  
  
 </head>
 <body>
@@ -22,12 +25,18 @@
 
 {% block styles%}
     {{ super() }}
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block content %}
     <br><br><br>
 <div class="container">
+    <h1>Tech Pitch</h1>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100">
@@ -35,6 +44,27 @@
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class="row ">
+           <div class="col-md-6">
+            <button  onclick = 'likeButtonClick()' id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
+            <p id="name"></p>
+           </div>
+           <div class="col-md-6">
+               <button>Comments</button>
+           </div>
+          </div>
+
+
+          
+          <div class="row">
+              <div class="col-md-6">
+                <button onclick = "dislikeButtonClick()" id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
+                <p id="women"></p>
+              </div>
+              <div class="col-md-6">
+                  <button>ADD PITCH</button>
+              </div>
+          </div>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -67,7 +97,7 @@
     </div>
   </div>
   <br><br>
-
+<h1>Interview Pitches</h1>
 <hr>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
@@ -75,7 +105,7 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">I'am Robinson A lawyer with with the government, based in Nairobi from Canada am loking to relocate and join a family-friendly firm. I specialize in labor law and worked for ABC firm before joining the government.</p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -87,7 +117,7 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">Hi, my name is Mark. After graduating with my bachelor's degree in Business Administration, I've spent last two years building  professional experience as an executve assistant. I successfully managed end to end cordination and have generated astroong professional network for my collegues.</p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -99,7 +129,7 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          <p class="card-text">Hi am Rose now that I have my Bachelor's degree in IT as well as few internship experiences in python development. I am ready to contribute to the vision of I hub as a tech company and an upcoming tech giant in East and Central Africa.</p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -108,7 +138,7 @@
     </div>
   </div>
   <br><br>
-  
+  <h1>Entertainment Pitch</h1>
 <hr>
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -117,7 +147,9 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text">TImagine a group of college professors that gather to say goodbye to a collegue, only to listen to his claims of being an immortall man.
+          my screen play is called The man from Earth.    
+          </p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -129,7 +161,7 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">I magin a world where dangerous creatures have killed most of the human raceleaving just asmall percentage of the population left in hiding, struggling to survive.</p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -141,7 +173,7 @@
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          <p class="card-text">You're the reason, I climb every mountain and swim every ocean just to be with you.</p>
         </div>
         <div class="card-footer">
           <small class="text-muted">Last updated 3 mins ago</small>
@@ -150,6 +182,23 @@
     </div>
   </div>
 </div>
+<script>
+    $(document).ready(function(){
+    var like=0
+    var dislike=0
+    $("#like").click(function(){
+        like++;
+        document.getElementById("name").innerHTML=like
+//   alert("The paragraph was clicked")
+});
+$("#dislike").click(function(){
+        dislike++;
+        document.getElementById("women").innerHTML=dislike
+//   alert("The paragraph was clicked."+''+sum);
+ });
+    })
+</script>
+
   {% endblock %}
     
 </body>

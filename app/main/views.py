@@ -18,6 +18,9 @@ def index():
     View root page function that returns the index page and its data
 
     '''
+    # like = 0
+    # dislike = 0
+    # like = like, dislike = dislike
 
   
         
