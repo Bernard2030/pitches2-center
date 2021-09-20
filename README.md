@@ -61,5 +61,11 @@ Signup inputs
 |Password|	Account password, eg @2030|
 |Confirm Password|	Account password, eg @2030|
 
+## Known Bugs
+There are no known bugs at the moment if you find any reach out through brobernard.254@gmail.com
+
+## Collaboration
+To contribute on the application you can do so by reaching me on brobernard.254@gmail.com
+
 
 
