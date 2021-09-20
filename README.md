@@ -46,20 +46,25 @@ python3 manage.py test.
 * As a user, I would like to view the different categories.
 
 ## BDD
-Login Inputs
 
-|Inputs	   |  Description|
-|Username   |	Account username, eg niez|
-|Password|	Account password, eg @2030|
+Login Inputs
+| Inputs	  | Description |
+| ------------- | ------------- |
+| Username  | Account username, eg niez  |
+| Password | Account password, eg @2030  |
+
 
 
 Signup inputs
 
-|Inputs	|      Description|
-|Username	Account username, eg niez|
-|Email	|User email, eg bro@gmail.com|
-|Password|	Account password, eg @2030|
-|Confirm Password|	Account password, eg @2030|
+| Inputs | Description |
+| ------------- | ------------- |
+| Username  |Account username, eg niez |
+| Email | Account password, eg @2030  |
+|Confirm Password | Account password, eg @2030 |
+
+
+
 
 ## Known Bugs
 There are no known bugs at the moment if you find any reach out through brobernard.254@gmail.com
