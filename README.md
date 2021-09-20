@@ -27,3 +27,10 @@ python3 manage.py server
 
 * Running tests
 python3 manage.py test.
+
+## Technologies used
+** Python3.8
+** Flask
+** Javascript
+** HTML5
+** Bootstrap5
