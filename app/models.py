@@ -10,10 +10,7 @@ from . import login_manager
 
 #...
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))  
-        
+
 
 
 class User(UserMixin,db.Model):
@@ -26,6 +23,7 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_hash = db.Column(db.String(255))
+    Pitch = db.relationship('Pitch', backref='user', lazy="dynamic")
 
     
    
@@ -42,6 +40,16 @@ class User(UserMixin,db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.password_hash,password)
+
+    # @staticmethod
+    # def get_user_by_username(username):
+    #     return User.query.filter_by(username=username).first()
+    
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))  
+            
 
     def __repr__(self):
         return f'User {self.username}'
@@ -106,6 +114,37 @@ class Comment(db.Model):
     def __repr__(self):
         return f'Comments: {self.comment}' 
 
+
+
+class Upvote(db.Model):
+    __tablename__ = 'upvotes'
+    id = db.Column(db.Integer, primary_key=True)
+    upvote = db.Column(db.Integer, default=1)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    pitch_id = db.Column(db.Integer, db.ForeignKey('pitchs.id'))
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def upvote(cls, id):
+        upvote_pitch = Upvote(user=current_user, pitch_id=id)
+        upvote_pitch.save()
+
+    @classmethod
+    def query_upvotes(cls, id):
+        upvote = Upvote.query.filter_by(pitch_id=id).all()
+        return upvote
+
+    @classmethod
+    def all_upvotes(cls):
+        upvotes = Upvote.query.order_by('id').all()
+        return upvotes
+
+    def __repr__(self):
+        return f'{self.user_id}:{self.pitch_id}'
+       
+
 class Downvote(db.Model):
     __tablename__ = 'downvotes'
     id = db.Column(db.Integer, primary_key=True)
@@ -133,6 +172,11 @@ class Downvote(db.Model):
 
     def __repr__(self):
         return f'{self.user_id}:{self.pitch_id}'
+
+
+
+   
+
 
         
              

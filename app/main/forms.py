@@ -17,7 +17,7 @@ class UpdateProfile(FlaskForm):
 class PitchForm(FlaskForm):
     title = StringField('Title', validators=[Required()])
     Pitch = TextAreaField('Pitch', validators=[Required()])
-    category = SelectField('Category', choices=[('product', 'product'), ('idea', 'idea'), ('business', 'business')],
+    category = SelectField('Category', choices=[('products', 'products'), ('interviews', 'interviews'), ('business', 'business')],
                            validators=[Required()])
     submit = SubmitField('Pitch')
 
@@ -30,9 +30,4 @@ class CommentForm(FlaskForm):
 class Vote(FlaskForm):
     submit = SelectField('Like')  
 
-class PitchForm(FlaskForm):
-    title = StringField('Title', validators=[Required()])
-    Pitch = TextAreaField('Pitch', validators=[Required()])
-    category = SelectField('Category', choices=[('product', 'product'), ('idea', 'idea'), ('business', 'business')],
-                           validators=[Required()])
-    submit = SubmitField('Pitch')
+
