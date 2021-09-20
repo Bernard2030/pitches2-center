@@ -1,5 +1,5 @@
 
-{% endblock %} -->
+
 
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf %}
@@ -16,7 +16,7 @@
                            <div class="card-body">
                             <h5>{{comment.pitch.title}}</h5>
                              <p class="card-title">{{ comment.comment }}</p>
-                             <p class="card-text">--- {{comment.user.username}}</p>
+                             <p class="card-text"> {{comment.user.username}}</p>
                            </div>
                        </div>
                     {% endfor %}

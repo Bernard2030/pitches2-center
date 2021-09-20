@@ -23,8 +23,8 @@ def index():
     # pitch = Pitch.query.all()
     pitch = Pitch.query.order_by(Pitch.date_created.desc()).all()
     business = Pitch.query.filter_by(category='business').all()
-    interviews = Pitch.query.filter_by(category='interview').all()
-    products = Pitch.query.filter_by(category='product').all()
+    interviews = Pitch.query.filter_by(category='interviews').all()
+    products = Pitch.query.filter_by(category='products').all()
 
 
    

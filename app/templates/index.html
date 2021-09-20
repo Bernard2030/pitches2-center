@@ -36,7 +36,7 @@
     {% block content %}
     <br><br><br>
 <div class="container">
-    <h1 style="color: blue;" ><strong>Business pitchs</strong></h1>
+    <h1><strong>Business Pitch</strong></h1>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for biz in business %}
     <div class="col">
@@ -47,11 +47,13 @@
           <p class="card-text">{{biz.pitch}}</p>
           <div class="row ">
            <div class="col-md-6">
-            <button  onclick = 'likeButtonClick()' id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
+            <button   id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
             <p id="name"></p>
            </div>
            <div class="col-md-6">
-               <button>Comments</button>
+               <a href="#">
+                <button>Comments</button>
+               </a>
            </div>
           </div>
 
@@ -59,7 +61,7 @@
           
           <div class="row">
               <div class="col-md-6">
-                <button onclick = "dislikeButtonClick()" id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
+                <button  id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
                 <p id="women"></p>
               </div>
               <div class="col-md-6">
@@ -68,7 +70,9 @@
               </div>
           </div>
         </div>
-        
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
       </div>
     </div>
     {% endfor %}
@@ -84,11 +88,11 @@
       <div class="card h-100">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{interview.title}}</h5>
-          <p class="card-text">{{interview.pitch}}</p>
+          <h5 class="card-title">{{interviews.title}}</h5>
+          <p class="card-text">{{interviews.pitch}}</p>
           <div class="row ">
             <div class="col-md-6">
-             <button  onclick = 'likeButtonClick()' id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
+             <button   id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
              <p id="name"></p>
             </div>
             <div class="col-md-6">
@@ -100,7 +104,7 @@
            
            <div class="row">
                <div class="col-md-6">
-                 <button onclick = "dislikeButtonClick()" id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
+                 <button  id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
                  <p id="women"></p>
                </div>
                <div class="col-md-6">
@@ -109,7 +113,9 @@
                </div>
            </div>
         </div>
-        
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
       </div>
     </div>
     {% endfor %}
@@ -117,7 +123,7 @@
     
   </div>
   <br><br>
-  <h1 style="color: blue;" ><strong>Product pitchs</strong></h1>
+  <h1 style="color: blue;" ><strong>Product</strong></h1>
 <hr>
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -126,16 +132,16 @@
       <div class="card h-100">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{product.title}}</h5>
-          <p class="card-text">{{product.pitch}}    
+          <h5 class="card-title">{{products.title}}</h5>
+          <p class="card-text">{{products.pitch}}    
           </p>
           <div class="row ">
             <div class="col-md-6">
-             <button  onclick = 'likeButtonClick()' id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
+             <button  id="like" class="  btn btn-lg bg-info"><i class="fa fa-thumbs-up"> LIKE</i></button>
              <p id="name"></p>
             </div>
             <div class="col-md-6">
-                <button>Comments</button>
+                <a href="/comment/{{Pitch_id}}"><button>Comments</button></a>
             </div>
            </div>
  
@@ -143,7 +149,7 @@
            
            <div class="row">
                <div class="col-md-6">
-                 <button onclick = "dislikeButtonClick()" id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
+                 <button  id="dislike" class="btn btn-lg bg-danger"><i class="fa fa-thumbs-down"> DISLIKE</i></button>
                  <p id="women"></p>
                </div>
                <div class="col-md-6">
@@ -152,7 +158,9 @@
                </div>
            </div>
         </div>
-        
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
       </div>
     </div>
     {% endfor %}
@@ -160,6 +168,10 @@
     
   </div>
 </div>
+
+
+
+
 
   {% endblock %}
     
