@@ -44,3 +44,22 @@ python3 manage.py test.
 * As a user, I would like to comment on the different pitches and leave feedback.
 * As a user, I would like to submit a pitch in any category.
 * As a user, I would like to view the different categories.
+
+## BDD
+Login Inputs
+
+|Inputs	   |  Description|
+|Username   |	Account username, eg niez|
+|Password|	Account password, eg @2030|
+
+
+Signup inputs
+
+|Inputs	|      Description|
+|Username	Account username, eg niez|
+|Email	|User email, eg bro@gmail.com|
+|Password|	Account password, eg @2030|
+|Confirm Password|	Account password, eg @2030|
+
+
+
