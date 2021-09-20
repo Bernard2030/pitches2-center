@@ -13,7 +13,7 @@ import markdown2
 # Views
 
 @main.route('/')
-@login_required
+# @login_required
 def index():
 
     '''
@@ -76,7 +76,7 @@ def comment(Pitch_id):
 
 
 
-@main.route('/user/<uname>')
+@main.route('/user/<username>', methods = ['GET', 'POST'])
 @login_required
 def profile(username):
     user = User.query.filter_by(username = username).first()
@@ -84,10 +84,19 @@ def profile(username):
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
+    form = PitchForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        pitch = form.pitch.data
+        category = form.category.data
+        user_id = current_user.id
+        Pitch_obj = Pitch(pitch=pitch, title=title, category=category, user_id=user_id)
+        Pitch_obj.save()
+
+    return render_template("profile/profile.html", user = user, form = form)
 
 
-@main.route('/user/<uname>/update',methods = ['GET','Pitch'])
+@main.route('/user/<username>/update',methods = ['GET','POST'])
 def update_profile(username):
     user = User.query.filter_by(username = username).first()
     if user is None:
@@ -105,7 +114,7 @@ def update_profile(username):
 
     return render_template('profile/update.html',form = form)
 
-@main.route('/user/<uname>/update/pic',methods = ['Pitch'])
+@main.route('/user/<username>/update/pic',methods = ['POST'])
 @login_required
 def update_pic(username):
     user = User.query.filter_by(username = username).first()
