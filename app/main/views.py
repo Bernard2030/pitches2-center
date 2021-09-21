@@ -44,10 +44,10 @@ def new_Pitch():
     form = PitchForm()
     if form.validate_on_submit():
         title = form.title.data
-        Pitch = form.Pitch.data
+        pitch = form.pitch.data
         category = form.category.data
         user_id = current_user._get_current_object().id
-        Pitch_obj = Pitch(Pitch=Pitch, title=title, category=category, user_id=user_id)
+        Pitch_obj = Pitch(pitch=pitch, title=title, category=category, user_id=user_id)
         Pitch_obj.save()
         return redirect(url_for('main.index'))
     return render_template('pitch.html', form=form)
