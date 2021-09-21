@@ -51,7 +51,7 @@
             <p id="name"></p>
            </div>
            <div class="col-md-6">
-               <a href="/comment/{{Pitch_id}}">
+               <a href="/comment/{{biz.id}}">
                 <button>Comments</button>
                </a>
            </div>
@@ -65,7 +65,7 @@
                 <p id="women"></p>
               </div>
               <div class="col-md-6">
-                  <a href="{{url_for('main.profile',username = current_user.username)}}"><button>ADD PITCH</button></a>
+                  <a href="{{url_for('main.new_Pitch')}}"><button>ADD PITCH</button></a>
                   
               </div>
           </div>
@@ -96,7 +96,7 @@
              <p id="name"></p>
             </div>
             <div class="col-md-6">
-                <a href="/comment/{{Pitch_id}}"><button>Comments</button></a>
+                <a href="/comment/{{interviews.id}}"><button>Comments</button></a>
             </div>
            </div>
  
@@ -108,7 +108,7 @@
                  <p id="women"></p>
                </div>
                <div class="col-md-6">
-                   <a href="{{url_for('main.profile',username = current_user.username)}}"><button>ADD PITCH</button></a>
+                   <a href="{{url_for('main.new_Pitch')}}"><button>ADD PITCH</button></a>
                    
                </div>
            </div>
@@ -142,7 +142,7 @@
              
             </div>
             <div class="col-md-6">
-                <a href="/comment/{{Pitch_id}}"><button>Comments</button></a>
+                <a href="/comment/{{products.id}}"><button>Comments</button></a>
             </div>
            </div>
  
@@ -154,7 +154,7 @@
                  <p id="women"></p>
                </div>
                <div class="col-md-6">
-                   <a href="{{url_for('main.profile',username = current_user.username)}}"><button>ADD PITCH</button></a>
+                   <a href="{{url_for('main.new_Pitch')}}"><button>ADD PITCH</button></a>
                    
                </div>
            </div>

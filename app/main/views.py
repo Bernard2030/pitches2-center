@@ -13,7 +13,7 @@ import markdown2
 # Views
 
 @main.route('/')
-# @login_required
+@login_required
 def index():
 
     '''
@@ -52,27 +52,27 @@ def new_Pitch():
         return redirect(url_for('main.index'))
     return render_template('pitch.html', form=form)
 
-@main.route('/comment/<int:Pitch_id>', methods=['GET', 'Pitch'])
+@main.route('/comment/<id>', methods=['GET', 'POST'])
 @login_required
-def comment(Pitch_id):
+def comment(id):
     form = CommentForm()
-    Pitch = pitch.query.get(Pitch_id)
+    pitch = Pitch.query.get(id)
     user = User.query.all()
-    comments = Comment.query.filter_by(Pitch_id=Pitch_id).all()
+    comment = Comment.query.filter_by(pitch_id=id).all()
     if form.validate_on_submit():
         comment = form.comment.data
-        Pitch_id = Pitch_id
-        user_id = current_user._get_current_object().id
+        pitch_id = id
+        user_id = current_user.id
         new_comment = Comment(
             comment=comment,
-            Pitch_id=Pitch_id,
+            pitch_id=pitch_id,
             user_id=user_id
         )
         new_comment.save()
-        new_comments = [new_comment]
-        print(new_comments)
-        return redirect(url_for('.comment', Pitch_id=Pitch_id))
-    return render_template('comment.html', form=form, Pitch=Pitch, comments=comments, user=user)
+        new_comment = [new_comment]
+        print(new_comment)
+        return redirect(url_for('.comment', Pitch_id=pitch_id))
+    return render_template('comment.html', form=form, Pitch=Pitch, comment=comment, user=user)
 
 
 
