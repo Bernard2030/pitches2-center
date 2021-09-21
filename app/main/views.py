@@ -38,7 +38,7 @@ def pitch():
     user = current_user
     return render_template('pitch_display.html', Pitch=Pitch, likes=likes, user=user)
 
-@main.route('/new_Pitch', methods=['GET', 'Pitch'])
+@main.route('/new_Pitch', methods=['GET', 'POST'])
 @login_required
 def new_Pitch():
     form = PitchForm()
@@ -71,7 +71,7 @@ def comment(id):
         new_comment.save()
         new_comment = [new_comment]
         print(new_comment)
-        return redirect(url_for('.comment', Pitch_id=pitch_id))
+        return redirect(url_for('.comment', id =id))
     return render_template('comment.html', form=form, Pitch=Pitch, comment=comment, user=user)
 
 
@@ -125,7 +125,7 @@ def update_pic(username):
         db.session.commit()
     return redirect(url_for('main.profile',username = username))
 
-@main.route('/like/<int:id>', methods=['Pitch', 'GET'])
+@main.route('/like/<int:id>', methods=['GET', 'POST'])
 @login_required
 def upvote(id):
     Pitch = User.query.get(id)
@@ -134,7 +134,7 @@ def upvote(id):
     return redirect(url_for('main.Pitchs'))
 
 
-@main.route('/dislike/<int:id>', methods=['GET', 'Pitch'])
+@main.route('/dislike/<int:id>', methods=['GET', 'POST'])
 @login_required
 def downvote(id):
     Pitch = User.query.get(id)
